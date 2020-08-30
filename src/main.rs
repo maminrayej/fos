@@ -11,9 +11,10 @@ use fos::println;
 pub extern "C" fn _start() -> ! {
     println!("Welcome to fos!");
 
+    fos::init();
+
     #[cfg(test)]
     test_main();
-
     loop {}
 }
 
