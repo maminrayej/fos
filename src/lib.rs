@@ -1,6 +1,8 @@
 #![no_std]
 #![cfg_attr(test, no_main)]
 #![feature(custom_test_frameworks)]
+#![feature(const_fn)]
+#![feature(const_in_array_repeat_expressions)]
 #![feature(alloc_error_handler)]
 #![test_runner(crate::test_runner)]
 #![reexport_test_harness_main = "test_main"]

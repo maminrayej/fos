@@ -1,7 +1,8 @@
 pub mod bump;
+pub mod fixed_size;
+pub mod linked;
+use fixed_size::FixedSizeBlockAllocator;
 
-use linked_list_allocator::LockedHeap;
-use bump::BumpAllocator;
 use x86_64::{
     structures::paging::{
         mapper::MapToError, FrameAllocator, Mapper, Page, PageTableFlags, Size4KiB,
@@ -10,7 +11,7 @@ use x86_64::{
 };
 
 #[global_allocator]
-static ALLOCATOR: Locked<BumpAllocator> = Locked::new(BumpAllocator::new());
+static ALLOCATOR: Locked<FixedSizeBlockAllocator> = Locked::new(FixedSizeBlockAllocator::new());
 
 pub const HEAP_START: usize = 0x_4444_4444_0000;
 pub const HEAP_SIZE: usize = 100 * 1024; // 100 KiB
