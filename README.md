@@ -16,6 +16,7 @@ Then use qemu to boot into the os:
 ```bash
 qemu-system-x86_64 -drive format=raw,file=target/x86_64-fos/debug/bootimage-fos.bin
 ```
+![](assets/welcome-to-fos.png)
 
 ## Boot using real hardware
 fos does not support UEFI so if your system uses BIOS as its firmware you can make a bootable usb using command below and then boot into the os:
